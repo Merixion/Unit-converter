@@ -1,5 +1,5 @@
 import './App.css'
-import SelectingASize from './assets/Components/Selecting-a-size/Selecting-a-size'
+import SelectingASize from './Components/Selecting-a-size/Selecting-a-size'
 
 function App() {
 
