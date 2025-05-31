@@ -1,0 +1,14 @@
+h1{
+  position: fixed;
+  color: black;
+  top: 5px
+}
+
+.size{
+  position: fixed;
+  font-size: 100px;
+  top: 70px;
+  transform: translateX(-230px);
+  background: blue;
+  border: 5px solid black;
+}
