@@ -33,6 +33,7 @@ function Distant() {
 				<option>Миля</option>
 			</select>
 			<input
+				type='Number'
 				value={value}
 				onChange={e => setValue(e.target.value)}
 				placeholder='Введите число'

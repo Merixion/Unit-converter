@@ -33,6 +33,7 @@ function Mass() {
         <option>Фунты</option>
       </select>
       <input
+        type='Number'
         value={value}
         onChange={e => setValue(e.target.value)}
         placeholder='Введите число'
