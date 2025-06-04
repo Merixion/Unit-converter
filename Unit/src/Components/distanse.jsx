@@ -5,16 +5,21 @@ import '../styles/menu.css';
 function Distant() {
 	const unit=
 		{
-			Метры: { Метры: 1, Километры: 0.001, Ярды: 1.09, Миля: 0.0006 },
-			Километры: { Метры: 1000, Километры: 1, Ярды: 1093, Миля: 0.62 },
-			Ярды: { Метры: 0.9144, Километры: 0.0009, Ярды: 1, Миля: 0.0006 },
-			Миля: { Метры: 1604.3, Километры: 1.609, Ярды: 1760, Миля: 1 },
+			м: { м: 1, км: 0.001, Я: 1.09, ми: 0.0006 },
+			км: { м: 1000, км: 1, Я: 1093, ми: 0.62 },
+			Я: { м: 0.9144, км: 0.0009, Я: 1, ми: 0.0006 },
+			ми: { м: 1604.3, км: 1.609, Я: 1760, ми: 1 },
 		}
 
 	const [value, setValue] = useState();
-	const [dis, setDis] = useState('Метры');
-	const [dis2, setDis2] = useState('Метры');
+	const [dis, setDis] = useState('м');
+	const [dis2, setDis2] = useState('м');
 	const [outpat, setOutpat] = useState(0);
+
+	function Shift(){
+		setDis(dis2);
+		setDis2(dis);
+	}
 
 	useEffect(() => {
 		if (!value || !dis || !dis2) return;
@@ -27,10 +32,10 @@ function Distant() {
 				onChange={e => setDis(e.target.value)}
 				className='menu'
 			>
-				<option>Метры</option>
-				<option>Километры</option>
-				<option>Ярды</option>
-				<option>Миля</option>
+				<option>м</option>
+				<option>км</option>
+				<option>Я</option>
+				<option>ми</option>
 			</select>
 			<input
 				type='Number'
@@ -44,12 +49,14 @@ function Distant() {
 				onChange={e => setDis2(e.target.value)}
 				className='menu'
 			>
-				<option>Метры</option>
-				<option>Километры</option>
-				<option>Ярды</option>
-				<option>Миля</option>
+				<option>м</option>
+				<option>км</option>
+				<option>Я</option>
+				<option>ми</option>
 			</select>
-			<h1>{outpat}</h1>
+			<br></br>
+			<button className='shift' onClick={Shift}>{'<->'}</button>
+			<h1>{outpat} {dis2}</h1>
 		</div>
 	);
 }
