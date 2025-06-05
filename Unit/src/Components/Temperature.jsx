@@ -1,16 +1,22 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import '../styles/menu.css'
+import { useState } from 'react';
+import { useEffect } from 'react';
+import '../styles/menu.css';
 
 function Temperature() {
-  const [value, setValue] = useState();
-  const [temp, setTemp] = useState("Целсий");
-  const [outpat, setOutpat] = useState(0);
-  useEffect(() =>{
-    if (!value || !temp) return;
-    if (temp === 'Целсий') setOutpat((value * 33.8).toFixed(2));
-		else setOutpat((value / 33.8).toFixed(2));
-  }, [value, temp])
+	const [value, setValue] = useState();
+	const [temp, setTemp] = useState('Целсий');
+	const [outpat, setOutpat] = useState(0);
+	const [history, setHistory] = useState(':0');
+
+	useEffect(() =>{
+		setHistory(...history, [`${temp} -> ${temp}`])
+	});
+
+	useEffect(() => {
+		if (!value || !temp) return;
+		if (temp === 'Целсий') setOutpat(((value * 9) / 5 + 32).toFixed(2));
+		else setOutpat((((value - 32) * 5) / 9).toFixed(2));
+	}, [value, temp]);
 	return (
 		<div>
 			<select

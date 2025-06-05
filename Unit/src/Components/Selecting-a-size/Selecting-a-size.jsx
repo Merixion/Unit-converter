@@ -4,7 +4,7 @@ import Temperature from "../Temperature.jsx"
 import Distant from "../distanse.jsx";
 import Mass from "../Mass.jsx";
 function SelectingASize(){
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('Температура');
 
   return (
 		<div>
